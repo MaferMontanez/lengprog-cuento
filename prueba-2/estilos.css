@@ -1,0 +1,67 @@
+
+/*1.Crea una página web que facilite la creación colectiva de un cuento que quede
+registrado en la página. Debe tener un input donde se pueda ir agregando texto a 
+un párrafo, sin borrar lo ya existente.
+
+El usuario también podrá ingresar, en otro input, el nombre del color que desee para
+el texto, entre rojo, azul, verde, amarillo, negro, violeta, naranjo o café, así 
+como también el color de fondo de todo el documento con estas mismas opciones.
+
+2.Añadir un formulario que capturé los siguientes datos del usuario que está 
+creando el cuento: nombre, apellido, edad, ciudad y país a la misma página 
+
+Definir la diagramación libremente (formulario, input y botón para añadir párrafos
+y opciones para modificar color de elementos) con consideraciones de usabilidad y 
+adecuada distribución de los elementos.
+
+3.Crear un botón para previsualizar los datos capturados (formulario y el cuento.), 
+a través de una alerta.
+*/
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+.row { 
+    margin: 25px 0; 
+    box-shadow: 7px 7px 7px 7px  #00000015;
+}
+
+.row div[class*='col'] { padding: 30px; background: #fff; }
+
+.centertext{
+    text-align: center;
+}
+
+
+.header-style{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    
+}
+.header-style h1{
+    font-size: 2rem;
+}
+textarea{
+    margin-bottom: 15px;
+}
+input{
+    margin-bottom: 20px;
+}
+
+
+
+  
+body::after {
+    content: "";
+    background: url(img/white-paper-texture.jpg);
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;   
+}

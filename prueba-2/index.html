@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" type="image/png" href="img/libro-de-lectura.png">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-style">
+        <img src="img/libro-de-lectura.png" width="100px" alt="ilustracion de manos abriendo un libro">
+        <h1>¡Creemos un cuento!</h1>
+        <h5>Creación colectiva de relatos. Escribe. Personaliza. Crea </h5>
+    </header>
+    <div class="container">
+        <main>
+        <div class="row ">
+
+            <div class="col-12">
+                <h4 class="centertext">Aquí empieza nuestra historia...</h4>
+                <p id="cuento"></p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-6">    
+                <textarea name="cuentito" id="cuentito" cols="50" rows="11" placeholder="Empieza a escribir tu cuento, deja volar tu imaginación"></textarea>
+                <button onClick="subirCuento()" class="btn btn-dark font-weight-bold">Subir Cuento</button>
+            </div>
+            <div class="col-6"> 
+                <form id="datitos">
+                    <!--NOMBRE-->
+                    <input id="nombrecito" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+                    
+                    <!--APELLIDO-->
+                    <input id="apellidox" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+        
+                    <!--EDAD-->
+                    <input type="number" id="edadcita" class="form-control" placeholder="Edad" aria-label="Edad">
+        
+                    <!--CIUDAD-->
+                    <input id="ciudad" type="text" class="form-control" placeholder="Ciudad" aria-label="Ciudad">
+        
+                    <!--PAIS-->
+                    <input id="pais" type="text" class="form-control" placeholder="País" aria-label="País">
+        
+                    <!--BOTON ENVIAR-->
+                    <button onClick="alertDatos()" type="submit" class="btn btn-dark font-weight-bold">Enviar</button>
+                </form>
+                
+
+                
+            </div>
+        </div>
+        
+        <!-- FORMULARIO -->
+        <div class="row">
+            <div class="col-md-12">
+                <p class="font-weight-bold">Selecciona un color de texto:</p>
+                <input type="radio" name="texto" class="input-text" onclick="colorTexto('#FF5C5C');" /> Rojo
+                <input type="radio" name="texto" onclick="colorTexto('#A2CB2A');" /> Verde
+                <input type="radio" name="texto" onclick="colorTexto('#5C9EFF');" /> Azul
+                <input type="radio" name="texto" onclick="colorTexto('#E5C511');" /> Amarillo
+                <input type="radio" name="texto" onclick="colorTexto('#000');" /> Negro
+                <input type="radio" name="texto" onclick="colorTexto('#903BD7');" /> Violeta
+                <input type="radio" name="texto" onclick="colorTexto('#FCA845');" /> Naranjo
+                <input type="radio" name="texto" onclick="colorTexto('#472700');" /> Cafe   
+            </div>
+            <div class="col-md-12">
+                <p class="font-weight-bold">Selecciona un color de fondo:</p>
+                <input type="radio" name="fondo" onclick="colorFondo('#FF5C5C');" /> Rojo
+                <input type="radio" name="fondo" onclick="colorFondo('#A2CB2A');" /> Verde
+                <input type="radio" name="fondo" onclick="colorFondo('#5C9EFF');" /> Azul
+                <input type="radio" name="fondo" onclick="colorFondo('#E5C511');" /> Amarillo
+                <input type="radio" name="fondo" onclick="colorFondo('#000');" /> Negro
+                <input type="radio" name="fondo" onclick="colorFondo('#903BD7');" /> Violeta
+                <input type="radio" name="fondo" onclick="colorFondo('#FCA845');" /> Naranjo
+                <input type="radio" name="fondo" onclick="colorFondo('#472700');" /> Cafe
+            </div>
+        </div>
+        
+        </main>
+    </div>
+        
+    <script>
+        function subirCuento(){
+            /*
+            En cuentoPrev se recupera el contenido existente del elemento con id "cuento".
+            En cuentoNuevo se almacena lo que el usuario acaba de escribir.
+            En cuentoCompleto se concatenan el valor de cuentoPrev y cuentoNuevo con un salto de linea.
+            Se reemplaza el contenido del elemento con id "cuento" con cuentoCompleto. 
+            */
+            var cuentoPrev = document.getElementById("cuento").innerHTML;
+            var cuentoNuevo = document.getElementById("cuentito").value;
+            var cuentoCompleto = cuentoPrev + "<br>" + cuentoNuevo ;
+    
+            document.getElementById("cuento").innerHTML = cuentoCompleto;
+            
+        }
+        function prueba(){
+            var cuentoPrev = document.getElementById("cuento").innerHTML;
+            alert(cuentoPrev);
+        }
+
+        function colorFondo(color){    
+            document.body.style.backgroundColor = color; 
+        }
+
+        function colorTexto(color){
+            document.getElementById("cuento").style.color = color;
+        }
+
+        function alertDatos(){
+            var dato1 = document.getElementById("nombrecito").value;
+            var dato2 = document.getElementById("apellidox").value;
+            var dato3 = document.getElementById("edadcita").value;
+            var dato4 = document.getElementById("ciudad").value;
+            var dato5 = document.getElementById("pais").value;
+            
+            alert("¡Felicitaciones! Su contribución ha sido grabada" + "\n" + "Su nombre es: " + dato1 + "\n" + "Su apellido es: " + dato2 + "\n" + "Su edad es: " + dato3  + "\n" + "Esta escribiendo desde: " + dato4 + ", " + dato5);
+        }
+        
+    </script>
+</body>
+</html>
